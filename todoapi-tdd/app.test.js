@@ -15,7 +15,7 @@ describe('Todos API', () =>{
                         {
                             id: expect.any(Number),
                             name: expect.any(String),
-                            done: any(Boolean)
+                            done: expect.any(Boolean)
                         }
                     )
                 ])
@@ -33,7 +33,7 @@ describe('Todos API', () =>{
                     {
                         id: 1,
                         name: expect.any(String),
-                        done: any(Boolean)
+                        done: expect.any(Boolean)
                     }
                 )
             )
@@ -58,9 +58,9 @@ describe('Todos API', () =>{
             expect(response.body).toEqual(
                 expect.objectContaining(
                     {
-                        id: 1,
+                        id: expect.any(Number),
                         name: 'my todo',
-                        done: false
+                        done: expect.any(Boolean)
                     }
                 )
             )
@@ -71,7 +71,7 @@ describe('Todos API', () =>{
         return request(app)
         .post('/todos')
         .send({
-            name: 'my todo',
+            name: 1234,
             done: false        
         })
         .expect(400)

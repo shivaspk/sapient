@@ -10,9 +10,9 @@ const consumer = kafka.consumer({ groupId: 'test-group' })
 const sportstopic = 'sports-topic'
 const run = async () => {
   await consumer.connect()
-  await consumer.subscribe({ topic: topic, fromBeginning: true })
+  await consumer.subscribe({ topic: topic})
   
-  await consumer.subscribe({  topic: sportstopic, fromBeginning: true })
+  //await consumer.subscribe({  topic: sportstopic, fromBeginning: true })
   await consumer.run({
     // eachBatch: async ({ batch }) => {
     //   console.log(batch)
